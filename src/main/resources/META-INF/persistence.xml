@@ -1,0 +1,24 @@
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             version="3.1">
+    <persistence-unit name="userPU">
+        <class>org.exa</class>
+
+        <properties>
+            <!-- JDBC Connection -->
+            <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/your_db_name"/>
+            <property name="jakarta.persistence.jdbc.user" value="your_username"/>
+            <property name="jakarta.persistence.jdbc.password" value="your_password"/>
+
+            <!-- Hibernate dialect -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+
+            <!-- Schema generation -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+
+            <!-- Show SQL -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>
