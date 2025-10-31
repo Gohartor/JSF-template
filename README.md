@@ -1,1 +1,1 @@
-# JFS-template
+# JSF-template
