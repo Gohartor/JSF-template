@@ -1,4 +1,3 @@
-// src/main/java/com/example/bean/UserBean.java
 package com.example.bean;
 
 import com.example.dao.UserRepository;
@@ -14,11 +13,13 @@ import java.util.List;
 
 @ManagedBean(name = "userBean")
 @SessionScoped
+//@ApplicationScoped -> CDI
 @Getter
 @Setter
 public class UserBean implements Serializable {
 
     private User user = new User();
+    //@Inject -> CDI
     private UserRepository repository = new UserRepository();
     private List<User> userList;
 

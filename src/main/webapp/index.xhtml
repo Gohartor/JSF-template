@@ -1,11 +1,10 @@
-<!-- src/main/webapp/index.xhtml -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <h:head>
-    <title>JSF CRUD - کاربران</title>
+    <title>JSF-template</title>
     <style>
         body { font-family: Tahoma; margin: 40px; }
         table { width: 100%; border-collapse: collapse; margin-top: 20px; }
@@ -18,22 +17,21 @@
 
 <h:body>
 
-    <h2>مدیریت کاربران</h2>
+    <h2>USER MANAGEMENT</h2>
 
-    <!-- فرم ثبت/ویرایش -->
     <h:form>
         <div class="form-grid">
-            <h:outputLabel for="name" value="نام:"/>
+            <h:outputLabel for="name" value="name:"/>
             <h:inputText id="name" value="#{userBean.user.name}" required="true"/>
 
-            <h:outputLabel for="email" value="ایمیل:"/>
+            <h:outputLabel for="email" value="mail:"/>
             <h:inputText id="email" value="#{userBean.user.email}" required="true"/>
 
-            <h:outputLabel for="phone" value="تلفن:"/>
+            <h:outputLabel for="phone" value="phone:"/>
             <h:inputText id="phone" value="#{userBean.user.phone}"/>
 
             <h:outputLabel/>
-            <h:commandButton value="#{userBean.user.id == null ? 'ذخیره' : 'به‌روزرسانی'}"
+            <h:commandButton value="#{userBean.user.id == null ? 'save' : 'update'}"
                              action="#{userBean.save}"
                              styleClass="btn"/>
         </div>
@@ -43,7 +41,6 @@
 
     <hr/>
 
-    <!-- جدول کاربران -->
     <h:form>
         <h:dataTable value="#{userBean.userList}" var="u" border="1">
             <h:column>
@@ -51,22 +48,22 @@
                 #{u.id}
             </h:column>
             <h:column>
-                <f:facet name="header">نام</f:facet>
+                <f:facet name="header">name</f:facet>
                 #{u.name}
             </h:column>
             <h:column>
-                <f:facet name="header">ایمیل</f:facet>
+                <f:facet name="header">mail</f:facet>
                 #{u.email}
             </h:column>
             <h:column>
-                <f:facet name="header">تلفن</f:facet>
+                <f:facet name="header">phone</f:facet>
                 #{u.phone}
             </h:column>
             <h:column>
-                <f:facet name="header">عملیات</f:facet>
-                <h:commandButton value="ویرایش" action="#{userBean.edit(u)}" styleClass="btn"/>
-                <h:commandButton value="حذف" action="#{userBean.delete(u)}" styleClass="btn"
-                                 onclick="return confirm('مطمئنی؟')"/>
+                <f:facet name="header">action</f:facet>
+                <h:commandButton value="edit" action="#{userBean.edit(u)}" styleClass="btn"/>
+                <h:commandButton value="remove" action="#{userBean.delete(u)}" styleClass="btn"
+                                 onclick="return confirm('sure?')"/>
             </h:column>
         </h:dataTable>
     </h:form>

@@ -6,7 +6,11 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "users")
-@Getter @Setter @NoArgsConstructor @AllArgsConstructor @ToString
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class User implements Serializable {
 
     @Id

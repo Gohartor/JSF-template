@@ -11,7 +11,7 @@ public class UserRepository {
     private EntityManager em;
 
     public UserRepository() {
-        this.emf = Persistence.createEntityManagerFactory("my-persistence-unit");
+        this.emf = Persistence.createEntityManagerFactory("my-persistence");
         this.em = emf.createEntityManager();
     }
 
